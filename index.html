@@ -172,16 +172,10 @@
         <input type="text" class="input-field" placeholder="أدخل الوظيفة هنا">
       </div>
 
-      <!-- Phone Number Input -->
-      <div>
-        <h2>رقم الهاتف</h2>
-        <input type="tel" class="input-field" placeholder="أدخل رقم هاتفك هنا">
-      </div>
-
       <!-- Final Registration Button -->
       <div class="question question6">
         <h2>برجاء التسجيل برقم الهاتف ليتم التواصل</h2>
-        <div class="answer" id="phone-register-button">سجل الآن</div>
+        <div class="answer" id="register-button">سجل الآن</div>
       </div>
       
     </div>
@@ -191,8 +185,8 @@
     // jQuery for button click behavior
     document.querySelectorAll('.answer').forEach(function(button) {
       button.addEventListener('click', function() {
-        // Redirect to phone registration page on button click
-        if (button.id === 'phone-register-button') {
+        // Redirect to registration page on button click
+        if (button.id === 'register-button') {
           window.location.href = "https://bjlowtm.com/cl/5d97887d02e321dc?p1=&p2=&source=&site=";
         }
       });
