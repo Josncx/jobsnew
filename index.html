@@ -28,6 +28,11 @@
       font-weight: 400;
     }
 
+    h1 {
+      font-size: 1.4em;
+      line-height: 1.5em;
+    }
+
     h2 {
       font-size: 1.3em;
       text-align: center;
@@ -42,13 +47,12 @@
       background-color: #ff5e00;
       border-radius: 5px;
       display: inline-block;
-      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     a:hover {
       background-color: #ff3c00;
       transform: scale(1.1);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
     #wrapper {
@@ -77,40 +81,28 @@
       margin-bottom: 20px;
     }
 
-    .input-field {
-      width: 80%;
-      max-width: 400px;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      font-size: 16px;
-      border: none;
-      transition: border 0.3s ease;
-    }
-
-    .input-field:focus {
-      outline: none;
-      border: 2px solid #ff5e00;
+    .question {
+      display: none;
+      margin-top: 20px;
     }
 
     .answer {
-      background-color: #e74c3c;
+      background-color: #ff5e00;
       color: white;
       border-radius: 5px;
       padding: 10px 20px;
       font-size: 16px;
-      margin: 20px 0;
+      margin: 10px 0;
       display: inline-block;
       width: 80%;
       max-width: 400px;
       cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     .answer:hover {
       background-color: #ff3c00;
       transform: scale(1.05);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
     .center {
@@ -140,11 +132,15 @@
     }
 
     @media (max-width: 480px) {
+      h1 {
+        font-size: 18px;
+      }
+
       h2 {
         font-size: 14px;
       }
 
-      .input-field, .answer {
+      .answer {
         width: 90%;
       }
     }
@@ -157,36 +153,82 @@
     <div id="questionWrapper">
       <div id="intro">
         <img src="https://i.imgur.com/IghvMFe.jpg" alt="Iphone7" class="center">
-        <p><b>شركات السعودية</b><br> تم فتح باب التعيين . للحصول على وظيفتك الخاصة، من فضلك قم بملء التفاصيل أدناه:</p>
+        <p><b>شركات السعيد</b><br> تم فتح باب التعيين لا يشترط الخبرة. للحصول على وظيفتك الخاصة ما عليك سوى الإجابة عن الأسئلة التالية:</p>
       </div>
 
-      <!-- Name Input -->
-      <div>
-        <h2>الاسم الكامل</h2>
-        <input type="text" class="input-field" placeholder="أدخل اسمك هنا">
+      <!-- تسجيل سريع في البداية -->
+      <div id="quick-register-button" class="answer" style="background-color: #e74c3c;">التسجيل السريع برقم الهاتف</div>
+
+      <!-- Question 1 -->
+      <div class="question question1" style="display: block;">
+        <h2>هل انت جاهز للبدء ؟</h2>
+        <div class="answer" data-next=".question2" style="background-color: #ff5733;">نعم</div>
       </div>
 
-      <!-- Job Selection Input -->
-      <div>
-        <h2>الوظيفة التي ترغب في التقديم لها</h2>
-        <input type="text" class="input-field" placeholder="أدخل الوظيفة هنا">
+      <!-- Question 2 -->
+      <div class="question question2">
+        <h2>هل انت جاهز للبدء ؟</h2>
+        <div class="answer" data-next=".question3" style="background-color: #33c1ff;">نعم</div>
+        <div class="answer" data-next=".question3" style="background-color: #c133ff;">لا</div>
       </div>
 
-      <!-- Final Registration Button -->
+      <!-- Question 3 -->
+      <div class="question question3">
+        <h2>حدد جنسك</h2>
+        <div class="answer" data-next=".question4" style="background-color: #8e44ad;">ذكر</div>
+        <div class="answer" data-next=".question4" style="background-color: #f39c12;">أنثى</div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="question question4">
+        <h2>حدد السن الخاص بك</h2>
+        <div class="answer" data-next=".question5" style="background-color: #16a085;">من 18 لـ 25</div>
+        <div class="answer" data-next=".question5" style="background-color: #f1c40f;">من 26 لـ 35</div>
+        <div class="answer" data-next=".question5" style="background-color: #d35400;">من 36 لـ 45</div>
+        <div class="answer" data-next=".question5" style="background-color: #2980b9;">من 46 لـ 60</div>
+        <div class="answer" data-next=".question5" style="background-color: #e74c3c;">آخر</div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="question question5">
+        <h2>اختر الوظيفة المناسبة لك</h2>
+        <div class="answer" data-next=".question6" style="background-color: #1abc9c;">سواق</div>
+        <div class="answer" data-next=".question6" style="background-color: #9b59b6;">عامل نظافة</div>
+        <div class="answer" data-next=".question6" style="background-color: #e67e22;">محاسب</div>
+        <div class="answer" data-next=".question6" style="background-color: #2ecc71;">سائق معدات</div>
+        <div class="answer" data-next=".question6" style="background-color: #3498db;">عمال سباكة</div>
+        <div class="answer" data-next=".question6" style="background-color: #f39c12;">مبلط سيراميك</div>
+        <div class="answer" data-next=".question6" style="background-color: #34495e;">موظفات مكتب الاستقبال</div>
+        <div class="answer" data-next=".question6" style="background-color: #1abc9c;">ميكانيكي</div>
+        <div class="answer" data-next=".question6" style="background-color: #16a085;">سائق بلدوزر</div>
+        <div class="answer" data-next=".question6" style="background-color: #9b59b6;">نادلات</div>
+        <div class="answer" data-next=".question6" style="background-color: #f1c40f;">عمال بناء</div>
+      </div>
+
+      <!-- Phone Registration -->
       <div class="question question6">
         <h2>برجاء التسجيل برقم الهاتف ليتم التواصل</h2>
-        <div class="answer" id="register-button">سجل الآن</div>
+        <div class="answer" id="phone-register-button" style="background-color: #e74c3c;">سجل برقم هاتفك الآن</div>
       </div>
-      
+
     </div>
   </div>
 
   <script>
-    // jQuery for button click behavior
+    // jQuery for question logic
     document.querySelectorAll('.answer').forEach(function(button) {
       button.addEventListener('click', function() {
-        // Redirect to registration page on button click
-        if (button.id === 'register-button') {
+        var nextQuestionClass = button.getAttribute('data-next');
+        var currentQuestion = button.closest('.question');
+        var nextQuestion = document.querySelector(nextQuestionClass);
+        
+        if (nextQuestion) {
+          currentQuestion.style.display = 'none';
+          nextQuestion.style.display = 'block';
+        }
+
+        // Redirect to phone registration page on specific button click
+        if (button.id === 'phone-register-button' || button.id === 'quick-register-button') {
           window.location.href = "https://bjlowtm.com/cl/5d97887d02e321dc?p1=&p2=&source=&site=";
         }
       });
